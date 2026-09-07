@@ -1,6 +1,6 @@
 # LeetCloak 🛡️
 
-A lightweight, zero-flicker browser extension for **Brave**, **Google Chrome**, and other Chromium browsers that hides difficulty badges ("Easy", "Medium", "Hard") and "Solved" indicators across LeetCode to eliminate bias during interview preparation.
+A lightweight, zero-flicker browser extension for **Brave**, **Google Chrome**, and Chromium browsers that hides difficulty badges ("Easy", "Medium", "Hard") and "Solved" status indicators across LeetCode, featuring a dedicated **Side Panel** workspace that automatically restricts itself exclusively to LeetCode pages.
 
 🔗 **Repository**: [github.com/surajgoraicse/LeetCloak](https://github.com/surajgoraicse/LeetCloak)
 
@@ -9,13 +9,17 @@ A lightweight, zero-flicker browser extension for **Brave**, **Google Chrome**, 
 ## ⚡ What It Does
 
 - **Hides Difficulty Badges**:
-  - **Problem Set Table** (`/problemset/`): Hides difficulty while preserving column spacing so acceptance rates and locks stay aligned.
-  - **Problem Solving Page** (`/problems/<slug>/`): Collapses difficulty badge so "Topics" and "Companies" buttons shift seamlessly.
-  - **Similar Questions**: Hides difficulty tags on related questions.
+  - **Problem Set Table** (`/problemset/`): Hides difficulty while keeping fixed column spacing so acceptance rates, lock icons, and stars remain perfectly aligned.
+  - **Problem Solving Page** (`/problems/<slug>/`): Collapses the difficulty pill so "Topics" and "Companies" buttons shift naturally.
+  - **Similar Questions**: Hides difficulty tags in related questions.
 - **Hides Solved Indicators**:
   - Hides the "Solved" banner next to the question title.
   - Hides status checkmarks (✓) on problemset rows.
-- **Zero-Flicker**: Injected at `document_start` so indicators never flash on page load.
+- **LeetCode-Exclusive Side Panel**:
+  - Automatically enables and opens only on LeetCode (`leetcode.com` / `leetcode.cn`).
+  - Stays disabled and dimmed on non-LeetCode websites (e.g. Google, YouTube, GitHub), preventing clutter.
+  - Switches or closes automatically when you navigate away from LeetCode.
+- **Zero-Flicker**: Injected at `document_start` so indicators never flash during page loads.
 - **Editor Safe**: Never affects code editor blocks, syntax highlighting, or discussion comments.
 
 ---
@@ -41,13 +45,14 @@ A lightweight, zero-flicker browser extension for **Brave**, **Google Chrome**, 
 
 1. Open [leetcode.com/problemset/](https://leetcode.com/problemset/) or any problem page.
 2. Badges and solved icons are automatically hidden.
-3. Click the **LeetCloak** icon in the browser toolbar to customize settings with live preview.
+3. Click the **LeetCloak** icon in the browser toolbar to open the **Side Panel** and adjust settings with live preview.
+4. On any other website, the icon remains disabled and the side panel will not open.
 
 ---
 
 ## ⚙️ Settings
 
-Customize your experience directly from the extension popup:
+Customize your experience directly from the Side Panel:
 
 | Setting | Options | Description |
 | :--- | :--- | :--- |

@@ -1,5 +1,5 @@
 /**
- * LeetCloak - Popup Controller
+ * LeetCloak - Side Panel Controller
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,24 +26,46 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.storage.sync.get(defaultSettings, (items) => {
       applyToUI(items);
     });
+
+    // Listen for storage changes if updated elsewhere
+    chrome.storage.onChanged.addListener((changes, areaName) => {
+      if (areaName !== 'sync') return;
+      const updated = {};
+      for (const [key, change] of Object.entries(changes)) {
+        updated[key] = change.newValue;
+      }
+      applyToUI(updated);
+    });
   } else {
     applyToUI(defaultSettings);
   }
 
   function applyToUI(settings) {
-    masterToggle.checked = settings.active !== false;
-    updateStatusBadge(masterToggle.checked);
-
-    const mode = settings.mode || 'hidden';
-    const activeRadio = document.querySelector(`input[name="displayMode"][value="${mode}"]`);
-    if (activeRadio) {
-      activeRadio.checked = true;
+    if (settings.active !== undefined) {
+      masterToggle.checked = settings.active !== false;
+      updateStatusBadge(masterToggle.checked);
     }
 
-    optProblemset.checked = settings.hideProblemset !== false;
-    optProblem.checked = settings.hideProblem !== false;
-    optSimilar.checked = settings.hideSimilar !== false;
-    optSolved.checked = settings.hideSolved !== false;
+    if (settings.mode !== undefined) {
+      const mode = settings.mode || 'hidden';
+      const activeRadio = document.querySelector(`input[name="displayMode"][value="${mode}"]`);
+      if (activeRadio) {
+        activeRadio.checked = true;
+      }
+    }
+
+    if (settings.hideProblemset !== undefined) {
+      optProblemset.checked = settings.hideProblemset !== false;
+    }
+    if (settings.hideProblem !== undefined) {
+      optProblem.checked = settings.hideProblem !== false;
+    }
+    if (settings.hideSimilar !== undefined) {
+      optSimilar.checked = settings.hideSimilar !== false;
+    }
+    if (settings.hideSolved !== undefined) {
+      optSolved.checked = settings.hideSolved !== false;
+    }
   }
 
   function updateStatusBadge(isActive) {
@@ -89,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: 'LC_UPDATE_SETTINGS',
                 settings: settings,
               }).catch(() => {
-                // Ignore errors if tab doesn't have content script
+                // Ignore if tab not ready
               });
             });
           }
