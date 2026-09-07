@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeetCloak Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/>
+            <line x1="2" y1="2" x2="22" y2="22"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>LeetCloak</h1>
+          <span class="badge" id="statusBadge">Active</span>
+        </div>
+      </div>
+      
+      <!-- Master Toggle Switch -->
+      <label class="switch" title="Toggle extension on/off">
+        <input type="checkbox" id="masterToggle" checked>
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <!-- Main Container -->
+    <main class="content" id="mainSettings">
+      <!-- Section: Display Mode -->
+      <section class="section">
+        <label class="section-title">Difficulty Hiding Mode</label>
+        <div class="mode-selector">
+          <label class="mode-card" data-mode="hidden">
+            <input type="radio" name="displayMode" value="hidden" checked>
+            <div class="mode-indicator"></div>
+            <div class="mode-details">
+              <span class="mode-name">Hidden</span>
+              <span class="mode-desc">Completely remove badges</span>
+            </div>
+          </label>
+
+          <label class="mode-card" data-mode="blur">
+            <input type="radio" name="displayMode" value="blur">
+            <div class="mode-indicator"></div>
+            <div class="mode-details">
+              <span class="mode-name">Reveal on Hover</span>
+              <span class="mode-desc">Blurred, unblurs on hover</span>
+            </div>
+          </label>
+
+          <label class="mode-card" data-mode="mask">
+            <input type="radio" name="displayMode" value="mask">
+            <div class="mode-indicator"></div>
+            <div class="mode-details">
+              <span class="mode-name">Placeholder</span>
+              <span class="mode-desc">Replaced with "—"</span>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- Section: Scope & Features -->
+      <section class="section">
+        <label class="section-title">Scope & Elements</label>
+        <div class="options-list">
+          <!-- Problem Set Table -->
+          <div class="option-item">
+            <div class="option-info">
+              <span class="option-title">Problem Set Difficulty</span>
+              <span class="option-desc">Hide column on /problemset/</span>
+            </div>
+            <label class="switch mini">
+              <input type="checkbox" id="optProblemset" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <!-- Problem Solving Page -->
+          <div class="option-item">
+            <div class="option-info">
+              <span class="option-title">Problem Solving Difficulty</span>
+              <span class="option-desc">Hide badge next to question title</span>
+            </div>
+            <label class="switch mini">
+              <input type="checkbox" id="optProblem" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <!-- Similar Questions -->
+          <div class="option-item">
+            <div class="option-info">
+              <span class="option-title">Similar Questions</span>
+              <span class="option-desc">Hide tags in related questions</span>
+            </div>
+            <label class="switch mini">
+              <input type="checkbox" id="optSimilar" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <!-- Solved Status & Checkmarks -->
+          <div class="option-item">
+            <div class="option-info">
+              <span class="option-title">Solved Status & Checkmarks</span>
+              <span class="option-desc">Hide "Solved" badges & check icons</span>
+            </div>
+            <label class="switch mini">
+              <input type="checkbox" id="optSolved" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="footer-tip">Practice without bias 🎯</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

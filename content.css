@@ -1,0 +1,190 @@
+/* ==========================================================================
+   LeetCloak - LeetCode Difficulty & Solved Badge Remover Stylesheet
+   Manifest V3
+   ========================================================================== */
+
+/* 1. Universal Safeguard: Never touch code editors, syntax blocks, or inputs */
+pre, pre *, code, code *, .monaco-editor, .monaco-editor *, textarea, input {
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* ==========================================================================
+   PROBLEMSET TABLE DIFFICULTY COLUMN
+   Maintains a fixed 54px column width so Title, Acceptance %, Lock, and Star
+   columns stay in straight, perfectly aligned vertical columns.
+   ========================================================================== */
+
+:root:not([data-lc-diff-active="false"]) [data-lc-area="problemset"],
+:root:not([data-lc-diff-active="false"]) p[class*="text-sd-easy"],
+:root:not([data-lc-diff-active="false"]) p[class*="text-sd-medium"],
+:root:not([data-lc-diff-active="false"]) p[class*="text-sd-hard"],
+:root:not([data-lc-diff-active="false"]) [class*="text-sd-easy"],
+:root:not([data-lc-diff-active="false"]) [class*="text-sd-medium"],
+:root:not([data-lc-diff-active="false"]) [class*="text-sd-hard"] {
+  min-width: 54px !important;
+  width: 54px !important;
+  text-align: center !important;
+  display: inline-block !important;
+}
+
+/* ==========================================================================
+   1. DIFFICULTY: HIDDEN MODE (Default)
+   ========================================================================== */
+
+/* Problemset page: use visibility: hidden to preserve column space */
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) [data-lc-area="problemset"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) p[class*="text-sd-easy"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) p[class*="text-sd-medium"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) p[class*="text-sd-hard"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) [class*="text-sd-easy"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) [class*="text-sd-medium"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) [class*="text-sd-hard"]:not(pre *):not(code *):not(.monaco-editor *) {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Problem description header pill (e.g., <div class="... rounded-full ... text-difficulty-hard">Hard</div>) */
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) [data-lc-area="header"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) [class*="text-difficulty-"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) span[class*="text-olive"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) span[class*="text-yellow"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) span[class*="text-pink"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) div[class*="text-olive"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) div[class*="text-yellow"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) div[class*="text-pink"]:not(pre *):not(code *):not(.monaco-editor *) {
+  display: none !important;
+}
+
+/* Similar Questions in Problem Description */
+:root:not([data-lc-diff-active="false"]):not([data-lc-diff-mode="blur"]):not([data-lc-diff-mode="mask"]) [data-lc-area="similar"] {
+  display: none !important;
+}
+
+/* ==========================================================================
+   2. DIFFICULTY: REVEAL ON HOVER (BLUR) MODE
+   ========================================================================== */
+
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] [data-lc-difficulty="true"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] p[class*="text-sd-easy"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] p[class*="text-sd-medium"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] p[class*="text-sd-hard"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] [class*="text-difficulty-"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] [class*="text-olive"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] [class*="text-yellow"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] [class*="text-pink"]:not(pre *):not(code *):not(.monaco-editor *) {
+  visibility: visible !important;
+  display: inline-flex !important;
+  filter: blur(6px) !important;
+  opacity: 0.8 !important;
+  user-select: none !important;
+  cursor: pointer !important;
+  transition: filter 0.2s ease, opacity 0.2s ease !important;
+}
+
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] [data-lc-difficulty="true"]:not(pre *):not(code *):not(.monaco-editor *):hover,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] p[class*="text-sd-easy"]:not(pre *):not(code *):not(.monaco-editor *):hover,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] p[class*="text-sd-medium"]:not(pre *):not(code *):not(.monaco-editor *):hover,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] p[class*="text-sd-hard"]:not(pre *):not(code *):not(.monaco-editor *):hover,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] [class*="text-difficulty-"]:not(pre *):not(code *):not(.monaco-editor *):hover,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] [class*="text-olive"]:not(pre *):not(code *):not(.monaco-editor *):hover,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] [class*="text-yellow"]:not(pre *):not(code *):not(.monaco-editor *):hover,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="blur"] [class*="text-pink"]:not(pre *):not(code *):not(.monaco-editor *):hover {
+  filter: blur(0px) !important;
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   3. DIFFICULTY: PLACEHOLDER MODE
+   ========================================================================== */
+
+:root[data-lc-diff-active="true"][data-lc-diff-mode="mask"] [data-lc-difficulty="true"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="mask"] p[class*="text-sd-easy"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="mask"] p[class*="text-sd-medium"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="mask"] p[class*="text-sd-hard"]:not(pre *):not(code *):not(.monaco-editor *),
+:root[data-lc-diff-active="true"][data-lc-diff-mode="mask"] [class*="text-difficulty-"]:not(pre *):not(code *):not(.monaco-editor *) {
+  position: relative !important;
+  color: transparent !important;
+  visibility: visible !important;
+  display: inline-flex !important;
+}
+
+:root[data-lc-diff-active="true"][data-lc-diff-mode="mask"] [data-lc-difficulty="true"]:not(pre *):not(code *):not(.monaco-editor *)::after,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="mask"] p[class*="text-sd-easy"]:not(pre *):not(code *):not(.monaco-editor *)::after,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="mask"] p[class*="text-sd-medium"]:not(pre *):not(code *):not(.monaco-editor *)::after,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="mask"] p[class*="text-sd-hard"]:not(pre *):not(code *):not(.monaco-editor *)::after,
+:root[data-lc-diff-active="true"][data-lc-diff-mode="mask"] [class*="text-difficulty-"]:not(pre *):not(code *):not(.monaco-editor *)::after {
+  content: "—" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: inherit !important;
+  font-weight: 500 !important;
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   4. SOLVED STATUS & CHECKMARK ICONS HIDING
+   ========================================================================== */
+
+/* Problem description page: hide 'Solved' badge completely */
+:root:not([data-lc-diff-active="false"]):not([data-lc-hide-solved="false"]) [data-lc-solved="problem"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-hide-solved="false"]) div:has(> svg[class*="text-message-success"]):not(pre *):not(code *):not(.monaco-editor *) {
+  display: none !important;
+}
+
+/* Problemset page: hide checkmark icon, preserve column layout */
+:root:not([data-lc-diff-active="false"]):not([data-lc-hide-solved="false"]) [data-lc-solved="problemset"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-hide-solved="false"]) div[class*="h-[44px]"] [class*="text-sd-success"]:not(pre *):not(code *):not(.monaco-editor *),
+:root:not([data-lc-diff-active="false"]):not([data-lc-hide-solved="false"]) div[class*="h-[44px]"] svg[class*="fa-check"]:not(pre *):not(code *):not(.monaco-editor *) {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* ==========================================================================
+   SCOPE OVERRIDES (When user toggles off a feature)
+   ========================================================================== */
+
+:root[data-lc-hide-problemset="false"] [data-lc-area="problemset"],
+:root[data-lc-hide-problemset="false"] p[class*="text-sd-easy"],
+:root[data-lc-hide-problemset="false"] p[class*="text-sd-medium"],
+:root[data-lc-hide-problemset="false"] p[class*="text-sd-hard"] {
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: none !important;
+  color: inherit !important;
+}
+
+:root[data-lc-hide-problem="false"] [data-lc-area="header"],
+:root[data-lc-hide-problem="false"] [class*="text-difficulty-"] {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: none !important;
+  color: inherit !important;
+}
+
+:root[data-lc-hide-similar="false"] [data-lc-area="similar"] {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: none !important;
+  color: inherit !important;
+}
+
+:root[data-lc-hide-solved="false"] [data-lc-solved="problem"],
+:root[data-lc-hide-solved="false"] div:has(> svg[class*="text-message-success"]) {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+:root[data-lc-hide-solved="false"] [data-lc-solved="problemset"],
+:root[data-lc-hide-solved="false"] div[class*="h-[44px]"] [class*="text-sd-success"],
+:root[data-lc-hide-solved="false"] div[class*="h-[44px]"] svg[class*="fa-check"] {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
